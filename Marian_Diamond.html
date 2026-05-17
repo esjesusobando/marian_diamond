@@ -448,11 +448,12 @@
             text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
         }
 
-        /* ========== BUTTONS ========== */
+        /* ========== BUTTONS (Apple HIG) ========== */
         .buttons {
             display: flex;
             flex-direction: column;
-            gap: 0.875rem;
+            align-items: center;
+            gap: 0.75rem;
             opacity: 0;
             transform: translateY(30px);
             animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -463,26 +464,26 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            padding: 0.875rem 1.25rem;
+            gap: 0.4rem;
+            height: 44px;
+            padding: 0 16px;
             border-radius: 10px;
-            font-size: 0.85rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+            font-size: 15px;
             font-weight: 600;
             line-height: 1;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
             border: none;
             text-decoration: none;
             letter-spacing: -0.01em;
-            min-height: 48px;
-            max-width: 200px;
-            width: auto;
             position: relative;
             overflow: hidden;
             -webkit-tap-highlight-color: transparent;
             opacity: 0;
             transform: translateY(20px);
             animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            min-width: 140px;
         }
 
         .btn:nth-child(1) { animation-delay: 0.78s; }
@@ -490,52 +491,28 @@
         .btn:nth-child(3) { animation-delay: 0.92s; }
         .btn:nth-child(4) { animation-delay: 1s; }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                135deg,
-                rgba(255, 255, 255, 0.25) 0%,
-                rgba(255, 255, 255, 0.08) 50%,
-                transparent 100%
-            );
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-
-        .btn:hover::before {
-            opacity: 1;
+        .btn:hover {
+            transform: translateY(-1px);
         }
 
         .btn:active {
-            transform: scale(0.97) translateY(2px);
+            transform: scale(0.98);
         }
 
         .btn svg {
-            width: 22px;
-            height: 22px;
+            width: 18px;
+            height: 18px;
             flex-shrink: 0;
-            display: block;
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .btn:hover svg {
-            transform: scale(1.15);
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, #7EC8C8 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, #7EB8B8 100%);
             color: white;
-            box-shadow:
-                0 6px 25px var(--primary-glow),
-                0 3px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(155, 127, 200, 0.35);
         }
 
         .btn-primary:hover {
-            box-shadow:
-                0 10px 40px var(--primary-glow),
+            box-shadow: 0 10px 40px var(--primary-glow),
                 0 5px 15px rgba(0, 0, 0, 0.25);
             transform: translateY(-3px);
         }
@@ -546,8 +523,8 @@
 
         .btn-primary .whatsapp-pulse {
             position: absolute;
-            inset: -5px;
-            border-radius: 20px;
+            inset: -4px;
+            border-radius: 12px;
             border: 2px solid var(--primary);
             opacity: 0;
             animation: pulse-ring 2.5s ease-in-out infinite;
@@ -559,43 +536,33 @@
         }
 
         .btn-tiktok {
-            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+            background: #1a1a1a;
             color: white;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .btn-tiktok:hover {
-            background: linear-gradient(135deg, #2a2a2a 0%, #444 100%);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+            background: #2d2d2d;
+            border-color: rgba(255, 255, 255, 0.15);
         }
 
-        .btn-tiktok svg {
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .btn-tiktok:hover svg {
-            transform: scale(1.2) rotate(5deg);
+        .btn-tiktok:active {
+            background: #111;
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.06);
-            color: white;
+            background: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.9);
             border: 1px solid rgba(255, 255, 255, 0.12);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.18);
         }
 
         .btn-secondary:active {
-            transform: scale(0.97) translateY(1px);
+            background: rgba(255, 255, 255, 0.06);
         }
 
         /* ========== FOOTER ========== */
@@ -623,67 +590,7 @@
             to { opacity: 1; }
         }
 
-        /* ========== SCROLL HINT ========== */
-        .scroll-hint {
-            position: fixed;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            z-index: 100;
-            opacity: 0;
-            animation: fadeIn 0.8s ease forwards, bounce 2s ease-in-out infinite;
-            animation-delay: 1.5s, 1.5s;
-        }
-
-        .scroll-hint.hidden {
-            opacity: 0 !important;
-            pointer-events: none;
-            transition: opacity 0.5s ease;
-        }
-
-        .mouse {
-            width: 22px;
-            height: 34px;
-            border: 2px solid rgba(245, 245, 245, 0.4);
-            border-radius: 12px;
-            position: relative;
-        }
-
-        .mouse::before {
-            content: '';
-            position: absolute;
-            top: 6px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 8px;
-            background: var(--blanco-dim);
-            border-radius: 2px;
-            animation: scroll-wheel 1.5s ease-in-out infinite;
-        }
-
-        @keyframes scroll-wheel {
-            0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
-            50% { transform: translateX(-50%) translateY(6px); opacity: 0.3; }
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-8px); }
-        }
-
-        .scroll-hint span {
-            font-size: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: rgba(245, 245, 245, 0.5);
-            font-weight: 600;
-        }
-
+        
         /* ========== RESPONSIVE ========== */
         @media (min-width: 768px) {
             .content {
@@ -704,36 +611,31 @@
                 flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 0.75rem;
-            }
-
-            .buttons .btn {
-                flex: 0 1 auto;
-                min-width: 0;
-                max-width: 220px;
+                gap: 0.625rem;
             }
 
             .btn {
-                min-height: 60px;
-                font-size: 1rem;
+                height: 46px;
+                padding: 0 18px;
+                font-size: 15px;
             }
 
             .info-card {
-                border-radius: 1.5rem;
+                border-radius: 1.25rem;
             }
 
             .info-row {
-                padding: 1.15rem 1.5rem;
-                gap: 1.25rem;
+                padding: 1rem 1.25rem;
+                gap: 1rem;
             }
 
             .info-icon {
-                width: 22px;
-                height: 22px;
+                width: 20px;
+                height: 20px;
             }
 
             .info-value {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
 
             h1 {
@@ -766,13 +668,15 @@
             }
 
             .btn {
-                padding: 1rem 1.25rem;
-                min-height: 52px;
-                font-size: 0.9rem;
+                height: 42px;
+                padding: 0 14px;
+                font-size: 14px;
+                min-width: 120px;
+                max-width: 180px;
             }
 
-            .buttons .btn {
-                max-width: 100%;
+            .buttons {
+                gap: 0.625rem;
             }
         }
 
@@ -896,33 +800,33 @@
         </div>
 
         <div class="buttons">
-            <a href="https://wa.me/5804140621217?text=%F0%9F%91%8B%F0%9F%91%8EHola!.%20te%20saluda%20la%20Familia%20Diamond%20kids%F0%9F%A7%A0.%20*Por%20favor%20me%20indica:*%0A*%20Nombre%20y%20apellido%20del%20representante.%0A*%20Nombre%20y%20apellido%20del%20ni%C3%B1o%20(a).%0A*%20Fecha%20de%20nacimiento.%0A%0A%E2%8F%B3En%20breve%20ser%C3%A1%20atendido!%20%F0%9F%AA%84%0A%0A%C2%A1%20%F0%9F%9C%88En%20Diamond%20kids%20creemos%20que%20todos%20los%20ni%C3%B1os%20...%20Merecen%20Brillar%E2%9C%A8!." target="_blank" class="btn btn-primary" id="whatsappBtn">
+            <a href="https://wa.me/5804140621217?text=%F0%9F%91%8B%F0%9F%91%8EHola!.%20te%20saluda%20la%20Familia%20Diamond%20kids%F0%9F%A7%A0.%20*Por%20favor%20me%20indica:*%0A*%20Nombre%20y%20apellido%20del%20representante.%0A*%20Nombre%20y%20apellido%20del%20ni%C3%B1o%20(a).%0A*%20Fecha%20de%20nacimiento.%0A%0A%E2%8F%B3En%20breve%20ser%C3%A1%20atendido!%20%F0%9F%AA%84%0A%0A%C2%A1%20%F0%9F%9C%88En%20Diamond%20kids%20creemos%20que%20todos%20los%20ni%C3%B1os%20...%20Merecen%20Brillar%E2%9C%A8!." target="_blank" class="btn btn-primary" id="whatsappBtn" aria-label="Reservar Cupo">
                 <span class="whatsapp-pulse"></span>
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                 </svg>
-                Reserva tu Cupo
+                <span>Reserva tu Cupo</span>
             </a>
 
-            <a href="https://www.tiktok.com/@diamond.kids80" target="_blank" class="btn btn-tiktok" id="tiktokBtn" aria-label="Síguenos en TikTok">
+            <a href="https://www.tiktok.com/@diamond.kids80" target="_blank" class="btn btn-tiktok" id="tiktokBtn" aria-label="TikTok">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
                 </svg>
-                <span>Síguenos en TikTok</span>
+                <span>TikTok</span>
             </a>
 
-            <a href="https://maps.apple.com/?address=Calle%20Campo%20El%C3%ADas,%20Ciudad%20Ojeda,%20Zulia,%20Venezuela&ll=10.204611,-71.313629&q=Calle%20Campo%20El%C3%ADas&t=m" target="_blank" class="btn btn-secondary" id="mapsBtn">
+            <a href="https://maps.apple.com/?address=Calle%20Campo%20El%C3%ADas,%20Ciudad%20Ojeda,%20Zulia,%20Venezuela&ll=10.204611,-71.313629&q=Calle%20Campo%20El%C3%ADas&t=m" target="_blank" class="btn btn-secondary" id="mapsBtn" aria-label="Ubicación">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
                 </svg>
-                Ver Ubicación
+                <span>Ubicación</span>
             </a>
 
-            <a href="https://uepdiamondkids.com/" target="_blank" class="btn btn-secondary" id="webBtn">
+            <a href="https://uepdiamondkids.com/" target="_blank" class="btn btn-secondary" id="webBtn" aria-label="Website">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
                 </svg>
-                Website
+                <span>Website</span>
             </a>
         </div>
 
@@ -933,11 +837,7 @@
     </div>
     </div>
 
-    <div class="scroll-hint" id="scrollHint">
-        <div class="mouse"></div>
-        <span>Scroll</span>
-    </div>
-
+    
     <script>
         const heroImg = document.getElementById('heroImg');
         heroImg.addEventListener('load', () => {
