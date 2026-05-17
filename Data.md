@@ -80,11 +80,9 @@ https://maps.apple.com/?address=Calle%20Campo%20El%C3%ADas,%20Ciudad%20Ojeda,%20
 | `Marian_Diamond.html` | Landing page principal |
 | `vercel.json` | Configuración Vercel (rewrites + headers) |
 | `README.md` | Documentación general del proyecto |
-| `enhanced_03_Diamond_Vert (1).png` | Imagen de fondo principal (3.2MB) |
-| `03_Diamond_Vert.png` | Versión alternativa de imagen (1.8MB) |
-| `03_Fondo.png` | Fondo alternativo (1.5MB) |
-| `base.png` | Imagen base (1.5MB) |
-| `01_Fondo.png`, `02_Fondo.png` | Assets de respaldo |
+| `assets/bg-main.png` | Imagen de fondo principal (3.2MB) |
+| `assets/base.png` | Imagen base alternativa |
+| `assets/alts/` | Versiones alternativas de fondos |
 
 ---
 
